@@ -4,7 +4,7 @@ This repository aims to simplify the complicated qemu-3dfx wrapper build process
 
 # Building
 
-Run `./build.sh` on a regular ArchLinus system or in an Arch container.
+Run `./build.sh` on a regular ArchLinux system or in an Arch container.
 
 # Credits
 
