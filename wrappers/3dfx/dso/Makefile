@@ -2,7 +2,7 @@ QEMU_SRC_DIR=../../../qemu-0
 GIT=$(shell git rev-parse HEAD | sed "s/\(.......\).*/\1\-/")
 CROSS=
 CC=$(CROSS)gcc
-CFLAGS=-I$(QEMU_SRC_DIR)/hw/3dfx -D__REV__=\"$(GIT)\" -Wall -Werror -O3 -fomit-frame-pointer
+CFLAGS=-I$(QEMU_SRC_DIR)/hw/3dfx -D__REV__=\"$(GIT)\" -O3 -fomit-frame-pointer
 LDFLAGS=
 
 TARGET2=libglide.so.2

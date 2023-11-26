@@ -1,4 +1,4 @@
-WATCOM_PATH=/opt/watcom11/bin
+WATCOM_PATH=/opt/watcom/binl
 WCC=$(WATCOM_PATH)/wcc386
 WLD=$(WATCOM_PATH)/wlink
 QEMU_SRC_DIR=..\..\..\qemu-0
@@ -11,6 +11,7 @@ all: glide2x.ovl
 glide2x.ovl: glideovl.obj
 	@echo "  CFLAGS  $(CFLAGS)"
 	@echo "  WLD $@"
+	cp glideovl.o glideovl.obj
 	@$(WLD) @$(<:obj=lnk)
 	@if [ -d ../$(OUTDIR) ]; then cp -v $@ ../$(OUTDIR); fi
 
