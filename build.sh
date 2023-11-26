@@ -47,20 +47,24 @@ cd ..
 echo "- Compiling djgpp cross compiler.."
 git clone https://github.com/revive9x/build-djgpp
 cd build-djgpp
-DJGPP_PREFIX=`pwd`/i686 time -p bash build-djgpp.sh 12.1.0-i686
-export PATH=$PATH:$(pwd)/i686/bin:$(pwd)/i686-pc-msdosdjgpp/bin
+if [ ! -d "i686" ]; then
+    DJGPP_PREFIX=`pwd`/i686 time -p bash build-djgpp.sh 12.1.0-i686
+fi
+export PATH=$PATH:$(pwd)/i686/bin:$(pwd)/i686/i686-pc-msdosdjgpp/bin
 cd ..
 
 cd wrappers/3dfx
-mkdir build && cd build
+mkdir build || true
+cd build 
 bash ../../../scripts/conf_wrapper
-make && make clean
+$SUID_BIN make && $SUID_BIN make clean
 cd ../../../
 
 cd wrappers/mesa
-mkdir build && cd build
+mkdir build || true
+cd build
 bash ../../../scripts/conf_wrapper
-make && make clean
+$SUID_BIN make && $SUID_BIN make clean
 cd ../../../
 
 echo "Build complete!"
